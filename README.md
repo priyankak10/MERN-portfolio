@@ -1,5 +1,9 @@
 # MERN Portfolio
 
+This repository contains my personal software engineer portfolio built with the MERN stack.
+It highlights my experience, projects, achievements, and resume files with preview and download support.
+The frontend is deployed on GitHub Pages, and the backend API is designed for optional external hosting.
+
 This project is a MERN-based software engineer portfolio.
 
 - Frontend: React + Vite
@@ -50,20 +54,53 @@ This compiles static assets into `client/dist`.
 
 ## Deploy to GitHub Pages
 
-1. Update `homepage` in `client/package.json`:
+1. Ensure `homepage` in `client/package.json` points to your repo URL:
 
 ```json
-"homepage": "https://YOUR_GITHUB_USERNAME.github.io/MERN-portfolio/"
+"homepage": "https://priyankak10.github.io/MERN-portfolio/"
 ```
 
-2. Commit and push your repository to GitHub.
-3. Run deployment:
+2. Commit and push your repository to GitHub (`main` branch).
+
+3. Deploy from the `client` folder:
 
 ```bash
+cd client
 npm run deploy
 ```
 
 The `gh-pages` package publishes `client/dist` to the `gh-pages` branch.
+
+4. Configure GitHub Pages in repository settings (one-time):
+
+- Open repository: `https://github.com/priyankak10/MERN-portfolio`
+- Go to **Settings > Pages**
+- Under **Build and deployment**:
+  - Source: `Deploy from a branch`
+  - Branch: `gh-pages`
+  - Folder: `/(root)`
+- Save
+
+5. Access the external link:
+
+- `https://priyankak10.github.io/MERN-portfolio/`
+
+6. If the page does not load immediately:
+
+- Wait 1-5 minutes after first deployment.
+- Hard refresh (`Ctrl+F5`).
+- Check GitHub Pages/Actions status in repository.
+
+## Update After Changes
+
+After making portfolio updates:
+
+```bash
+cd client
+npm run deploy
+```
+
+Refresh the same GitHub Pages URL.
 
 ## Notes
 
