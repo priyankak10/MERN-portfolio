@@ -2,7 +2,7 @@ export const fallbackProfile = {
   name: "Priyanka Kumari",
   role: "Software Engineer | MERN Stack Developer",
   summary:
-    "Software engineer with 5+ years of experience building and scaling MERN applications, with 2608+ commits across 10 repositories from 2021-2026 in CI, automation, and validation platforms.",
+    "Software engineer with 9+ years of experience building and scaling enterprise applications across MERN, APIs, and automation, with 2608+ commits across 10 repositories from 2021-2026.",
   techStack: [
     "MongoDB",
     "Express.js",
@@ -54,6 +54,46 @@ export const fallbackProfile = {
       tags: ["MERN", "Automation", "Integration"],
     },
   ],
+  experience: [
+    {
+      company: "Intel Technology India Private Limited",
+      role: "Software Engineer",
+      period: "Dec 2016 - Present",
+      location: "Bengaluru, India",
+      points: [
+        "Developed complete frontend and distributed microservices for internal applications managing PRs, builds, and validation workflows.",
+        "Designed React and Material UI web applications for testing analytics, custom app lists, report publishing, and insight dashboards.",
+        "Migrated 4+ web applications to Cloud Foundry and supported multisite deployment patterns for operational resilience.",
+        "Implemented Redis-based caching in life-cycle tracking tools to improve performance and user experience.",
+      ],
+    },
+  ],
+  contributionStats: [
+    "2,608 total matched commits",
+    "619 feature-oriented commits",
+    "225 bug-fix commits",
+    "10 repositories in scope",
+    "Commit span: 2021-06-16 to 2026-08-27",
+  ],
+  education: [
+    "B.Tech in Computer Science, Biju Patnaik University of Technology (2016, 8.55 CGPA)",
+    "Higher Secondary (CBSE), Gurunanak Higher Secondary School, Ranchi (2011, 72%)",
+    "Secondary School (CBSE), Jawahar Navodaya Vidyalaya, Gumla (2009, 91.6%)",
+  ],
+  certifications: [
+    "Product Assurance and Security White Belt",
+    "Certification in Java",
+    "Certification in Android Application Development",
+    "AI Everywhere - NLP Applications with Python Professional",
+  ],
+  awards: [
+    "Division Recognition Award for automation of Houdini licensing workflows",
+    "Division Recognition Award for revamping internal web UI and analytics capabilities",
+    "Out-of-cycle promotion for app analytics tooling contributions",
+    "2nd prize in company Hackathon and Innovation and Career Fair",
+    "College topper recognition for best academic performance",
+  ],
+  languages: ["English (Full Professional)", "Hindi (Full Professional)"],
   contact: {
     email: "priyankasahu.1011@gmail.com",
     github: "https://github.com/priyankak10",

@@ -127,6 +127,10 @@ h2 {
   margin-top: 2.4rem;
 }
 
+.resume-section {
+  margin-top: 2.4rem;
+}
+
 .section-head h3 {
   margin: 0.3rem 0 0;
   font-size: 1.75rem;
@@ -159,6 +163,54 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
+}
+
+.resume-card,
+.snapshot-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.resume-card {
+  padding: 1.1rem;
+}
+
+.resume-card h4,
+.snapshot-card h4 {
+  margin: 0;
+}
+
+.resume-card .meta {
+  margin: 0.55rem 0 0;
+  color: var(--ink-soft);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+}
+
+.resume-card ul,
+.snapshot-card ul {
+  margin: 0.8rem 0 0;
+  padding-left: 1rem;
+}
+
+.resume-card li,
+.snapshot-card li {
+  margin-top: 0.45rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.snapshot-grid {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.snapshot-card {
+  padding: 1.1rem;
 }
 
 .footer {

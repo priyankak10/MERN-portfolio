@@ -66,6 +66,78 @@ function App() {
             ))}
           </div>
         </section>
+
+        <section className="resume-section section-animate delay-2">
+          <div className="section-head">
+            <p className="kicker">Experience</p>
+            <h3>Professional Journey</h3>
+          </div>
+          {profile.experience.map((item) => (
+            <article
+              key={`${item.company}-${item.period}`}
+              className="resume-card"
+            >
+              <h4>{item.role}</h4>
+              <p className="meta">
+                {item.company} | {item.location} | {item.period}
+              </p>
+              <ul>
+                {item.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </section>
+
+        <section className="resume-section section-animate delay-3">
+          <div className="section-head">
+            <p className="kicker">Resume Snapshot</p>
+            <h3>Credentials and Impact</h3>
+          </div>
+          <div className="snapshot-grid">
+            <article className="snapshot-card">
+              <h4>Contribution Stats</h4>
+              <ul>
+                {profile.contributionStats.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="snapshot-card">
+              <h4>Education</h4>
+              <ul>
+                {profile.education.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="snapshot-card">
+              <h4>Certifications</h4>
+              <ul>
+                {profile.certifications.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="snapshot-card">
+              <h4>Awards</h4>
+              <ul>
+                {profile.awards.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="snapshot-card">
+              <h4>Languages</h4>
+              <ul>
+                {profile.languages.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </section>
       </main>
 
       <footer className="footer section-animate delay-3">
