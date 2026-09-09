@@ -94,6 +94,20 @@ export const fallbackProfile = {
     "College topper recognition for best academic performance",
   ],
   languages: ["English (Full Professional)", "Hindi (Full Professional)"],
+  resumeFiles: [
+    {
+      label: "Full Stack Resume (PDF)",
+      file: "resumes/Priyanka_Kumari_FullStack.pdf",
+    },
+    {
+      label: "Full Stack Resume - Plain (PDF)",
+      file: "resumes/Priyanka_Kumari_FullStack_Plain.pdf",
+    },
+    {
+      label: "MERN Resume - 2 Page (DOC)",
+      file: "resumes/Priyanka_Kumari_MERN_FullStack_Resume_2Page.doc",
+    },
+  ],
   contact: {
     email: "priyankasahu.1011@gmail.com",
     github: "https://github.com/priyankak10",

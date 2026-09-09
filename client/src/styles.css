@@ -75,6 +75,23 @@ h2 {
   line-height: 1.6;
 }
 
+.hero-actions {
+  margin-top: 1rem;
+}
+
+.resume-top-btn {
+  border: 1px solid var(--brand);
+  background: var(--brand);
+  color: #f7f3ec;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .tech-strip {
   margin-top: 1.5rem;
   display: flex;
@@ -213,6 +230,106 @@ h2 {
   padding: 1.1rem;
 }
 
+.resume-library {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.resume-list-panel,
+.resume-preview-panel {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 1.1rem;
+}
+
+.resume-list-panel h4,
+.resume-preview-panel h4 {
+  margin: 0;
+}
+
+.resume-list {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.resume-file-btn {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fbf8f2;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.65rem 0.7rem;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease;
+}
+
+.resume-file-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--brand);
+}
+
+.resume-file-btn.active {
+  border-color: var(--brand);
+  background: rgba(15, 106, 94, 0.1);
+}
+
+.resume-file-name {
+  font-weight: 500;
+}
+
+.resume-file-type {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.46rem;
+  background: #fff;
+}
+
+.download-resume-btn {
+  margin-top: 0.9rem;
+  display: inline-block;
+  border-radius: 999px;
+  border: 1px solid var(--brand);
+  background: var(--brand);
+  color: #f7f3ec;
+  padding: 0.5rem 0.95rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.resume-preview-frame {
+  margin-top: 0.8rem;
+  width: 100%;
+  min-height: 420px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.preview-unavailable {
+  margin-top: 0.8rem;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 0.9rem;
+  color: var(--ink-soft);
+  background: #fcfaf5;
+}
+
 .footer {
   margin-top: 2.4rem;
   border: 1px solid var(--border);
@@ -267,6 +384,10 @@ h2 {
 @media (max-width: 640px) {
   .site-shell {
     padding: 1.2rem 0.9rem 2rem;
+  }
+
+  .resume-library {
+    grid-template-columns: 1fr;
   }
 
   .hero,

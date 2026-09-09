@@ -2,6 +2,39 @@ import { useEffect, useState } from "react";
 import { fallbackProfile } from "./portfolioData";
 
 const apiBase = import.meta.env.VITE_API_BASE_URL;
+const resumeSectionId = "resume-library";
+
+function makeResumeLabel(fileName) {
+  return fileName
+    .replace(/\.[^.]+$/, "")
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getResumeFileType(fileName) {
+  return fileName.split(".").pop()?.toUpperCase() || "FILE";
+}
+
+const resumeAssetModules = import.meta.glob(
+  "../assets/resumes/*.{pdf,doc,docx}",
+  {
+    eager: true,
+    import: "default",
+    query: "?url",
+  },
+);
+
+const resumeAssets = Object.entries(resumeAssetModules)
+  .map(([path, url]) => {
+    const fileName = path.split("/").pop() || "Resume";
+    return {
+      label: makeResumeLabel(fileName),
+      fileName,
+      url,
+    };
+  })
+  .sort((a, b) => a.label.localeCompare(b.label));
 
 async function fetchProfile() {
   if (!apiBase) return fallbackProfile;
@@ -17,10 +50,37 @@ async function fetchProfile() {
 
 function App() {
   const [profile, setProfile] = useState(fallbackProfile);
+  const [selectedResume, setSelectedResume] = useState(null);
+  const resumeFiles = resumeAssets;
 
   useEffect(() => {
     fetchProfile().then((data) => setProfile(data));
   }, []);
+
+  useEffect(() => {
+    if (resumeFiles.length) {
+      setSelectedResume((current) => {
+        if (current) {
+          const stillPresent = resumeFiles.find(
+            (item) => item.fileName === current.fileName,
+          );
+          if (stillPresent) return stillPresent;
+        }
+        return resumeFiles[0];
+      });
+    }
+  }, [resumeFiles]);
+
+  const resumeUrl = selectedResume?.url || "";
+  const selectedExt = selectedResume?.fileName.split(".").pop()?.toLowerCase();
+  const canPreview = selectedExt === "pdf";
+
+  const jumpToResumeSection = () => {
+    document.getElementById(resumeSectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <div className="site-shell">
@@ -29,6 +89,15 @@ function App() {
         <h1>{profile.name}</h1>
         <h2>{profile.role}</h2>
         <p className="summary">{profile.summary}</p>
+        <div className="hero-actions">
+          <button
+            type="button"
+            className="resume-top-btn"
+            onClick={jumpToResumeSection}
+          >
+            Resume
+          </button>
+        </div>
         <div className="tech-strip">
           {profile.techStack.map((item) => (
             <span key={item}>{item}</span>
@@ -135,6 +204,73 @@ function App() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+            </article>
+          </div>
+        </section>
+
+        <section
+          id={resumeSectionId}
+          className="resume-section section-animate delay-3"
+        >
+          <div className="section-head">
+            <p className="kicker">Resume Folder</p>
+            <h3>Resume Library</h3>
+          </div>
+          <div className="resume-library">
+            <aside className="resume-list-panel">
+              <h4>Select a resume file</h4>
+              <div className="resume-list">
+                {resumeFiles.map((item) => (
+                  <button
+                    key={item.fileName}
+                    type="button"
+                    className={`resume-file-btn ${
+                      selectedResume?.fileName === item.fileName ? "active" : ""
+                    }`}
+                    onClick={() => setSelectedResume(item)}
+                  >
+                    <span className="resume-file-name">{item.label}</span>
+                    <span className="resume-file-type">
+                      {getResumeFileType(item.fileName)}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              {selectedResume && (
+                <a
+                  className="download-resume-btn"
+                  href={resumeUrl}
+                  download
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Download Selected File
+                </a>
+              )}
+            </aside>
+
+            <article className="resume-preview-panel">
+              <h4>Preview</h4>
+              {selectedResume ? (
+                canPreview ? (
+                  <iframe
+                    title={`Preview ${selectedResume.label}`}
+                    src={resumeUrl}
+                    className="resume-preview-frame"
+                  />
+                ) : (
+                  <div className="preview-unavailable">
+                    <p>
+                      Preview is available for PDF files. Use the download
+                      button to open this document.
+                    </p>
+                  </div>
+                )
+              ) : (
+                <div className="preview-unavailable">
+                  <p>No resume file selected.</p>
+                </div>
+              )}
             </article>
           </div>
         </section>
